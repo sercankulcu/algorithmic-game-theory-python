@@ -40,3 +40,12 @@ python saf_nash.py
 ```
 
 Comments, docstrings and identifiers are in Turkish, as on the slides. Where a slide's code uses something it does not define (a missing `import`, or the tic-tac-toe game used by the depth-limited search in `Bolum02/laboratuvar_arama.py`), the file adds the smallest piece needed and says so in a comment.
+
+## Automatic check
+
+`ci/run_examples.py` runs every program in the `BolumNN` folders (with the packages in `requirements.txt`) and compares its output with the expected output at the end of the file. GitHub Actions runs it on every push. A program whose output changes from run to run (timings, random numbers, thread order, the network) says so above its expected output and only has to run. To run the check locally:
+
+```bash
+python ci/run_examples.py            # every chapter
+python ci/run_examples.py Bolum03    # one chapter
+```
